@@ -6,12 +6,12 @@ services:
   db_store:
     restart: on-failure:3
     image: postgres:13.2
-    volumens:
+    volumes:
       - postgresql_store_api:/var/lib/postgresql/data
     ports:
       - 5432:5432
     env_file:
-      -environments/.env.postgresql
+      - environments/.env.postgresql
   store_api:
     restart: on-failure:3
     build:
